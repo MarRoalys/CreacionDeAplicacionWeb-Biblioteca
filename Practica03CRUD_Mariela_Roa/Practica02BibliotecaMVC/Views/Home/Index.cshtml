@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Panel principal";
+}
+<div class="container py-4">
+    <h1 class="display-5">Bienvenido a la Biblioteca del Norte</h1>
+    <p class="lead">
+        Hola, <strong>@User.Identity?.Name</strong>.
+    </p>
+    <p>
+        Rol actual: <span class="badge bg-secondary fs-6">@User.FindFirst(System.Security.Claims.ClaimTypes.Role)?.Value</span>
+    </p>
+
+    <div class="row g-3 mt-4">
+        @if (User.IsInRole("Administrador"))
+        {
+            <div class="col-md-4">
+                <a class="btn btn-dark w-100 py-3" asp-action="Administracion">Gestión de Administración</a>
+            </div>
+        }
+        @if (User.IsInRole("Administrador") || User.IsInRole("Bibliotecario"))
+        {
+            <div class="col-md-4">
+                <a class="btn btn-success w-100 py-3" asp-action="Prestamos">Control de Préstamos</a>
+            </div>
+        }
+        <div class="col-md-4">
+            <a class="btn btn-primary w-100 py-3" asp-controller="Libros" asp-action="Index">Consultar Catálogo</a>
+        </div>
+    </div>
+</div>

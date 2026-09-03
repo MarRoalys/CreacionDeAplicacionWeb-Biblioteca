@@ -1,0 +1,26 @@
+@model Practica02BibliotecaMVC.Models.Libro
+@{
+    ViewData["Title"] = "Eliminar Libro";
+}
+
+<h1 class="text-danger">Eliminar Libro</h1>
+<div class="alert alert-warning mt-3">
+    <strong>¡Atención!</strong> Esta acción eliminará el registro de forma permanente si no existen préstamos relacionados que lo impidan.
+</div>
+
+<div class="card mb-4 border-danger">
+    <div class="card-body">
+        <h4 class="card-title">@Model.Titulo</h4>
+        <p class="card-text">
+            <strong>ISBN:</strong> @Model.Isbn <br />
+            <strong>Autor:</strong> @Model.AutorNombreCompleto <br />
+            <strong>Categoría:</strong> @Model.CategoriaNombre <br />
+            <strong>Stock:</strong> @Model.Stock unidades
+        </p>
+    </div>
+</div>
+
+<form asp-action="Delete" asp-route-id="@Model.IdLibro" method="post">
+    <button type="submit" class="btn btn-danger">Sí, eliminar definitivamente</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

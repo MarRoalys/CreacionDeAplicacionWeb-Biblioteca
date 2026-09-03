@@ -1,0 +1,82 @@
+@model Practica02BibliotecaMVC.Models.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Ingresar";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ingresar - Biblioteca del Norte</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Figuras decorativas de fondo -->
+    <div class="bg-shape shape-top-left"></div>
+    <div class="bg-shape shape-bottom-right"></div>
+
+    <div class="login-wrapper">
+        <div class="login-card">
+            
+            <!-- MITAD IZQUIERDA: Formulario -->
+            <div class="login-form-side">
+                <div class="text-center mb-4">
+                    <span class="text-muted text-uppercase small fw-bold">Bienvenido a</span>
+                    <h2 class="brand-title">BIBLIOTECA DEL NORTE</h2>
+                    <p class="text-muted small mt-2">Ingrese sus credenciales para acceder al catálogo y sus préstamos.</p>
+                </div>
+
+                <form asp-action="Login" method="post">
+                    @Html.AntiForgeryToken()
+                    <div asp-validation-summary="ModelOnly" class="text-danger small mb-3 text-center"></div>
+                     @if (TempData["MensajeLogout"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show text-center small mb-3" style="border-radius: 15px;" role="alert">
+        @TempData["MensajeLogout"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+                    <!-- Input Correo -->
+                    <div class="mb-3 position-relative form-group-pill">
+                        <input asp-for="Email" class="form-control form-control-pill" placeholder="Correo electrónico" autocomplete="username" />
+                        <span asp-validation-for="Email" class="text-danger small ps-3"></span>
+                    </div>
+
+                    <!-- Input Contraseña con enlace de recuperar -->
+                    <div class="mb-3 position-relative form-group-pill">
+                        <input asp-for="Password" class="form-control form-control-pill" placeholder="Contraseña" autocomplete="current-password" />
+                        <a href="#" class="forgot-password-link small">¿Olvidó su contraseña?</a>
+                        <span asp-validation-for="Password" class="text-danger small ps-3"></span>
+                    </div>
+
+                    <div class="form-check mb-4 ps-4">
+                        <input asp-for="RememberMe" class="form-check-input" />
+                        <label asp-for="RememberMe" class="form-check-label small text-muted">Mantener sesión iniciada</label>
+                    </div>
+
+                    <button class="btn btn-primary-pill w-100 mb-4" type="submit">INICIAR SESIÓN</button>
+
+                    <div class="text-center small text-muted mt-2 border-top pt-3">
+                        ¿No tiene una cuenta? <a href="#" class="signup-link fw-bold">Crear cuenta nueva</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- MITAD DERECHA: Imagen y Degradado -->
+            <div class="login-image-side">
+                <div class="image-overlay">
+                    <h2 class="text-white fw-bold mb-3">EL CONOCIMIENTO A TU ALCANCE</h2>
+                    <p class="text-white-50 small mb-0">Explora nuevas categorías, reserva ejemplares y sumérgete en miles de recursos literarios desde nuestra plataforma centralizada.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+</body>
+</html>
