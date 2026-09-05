@@ -1,0 +1,17 @@
+@model Practica01MVC.Models.Producto
+@{
+ ViewData["Title"] = "Producto";
+}
+<h1 class="mb-4">Información del producto</h1>
+<div class="producto-card">
+ <h2>@Model.Nombre</h2>
+ <p>@Model.Descripcion</p>
+ <dl class="row">
+ <dt class="col-sm-4">Código</dt>
+ <dd class="col-sm-8">@Model.Id</dd>
+ <dt class="col-sm-4">Precio</dt>
+ <dd class="col-sm-8">@Model.Precio.ToString("C")</dd>
+ <dt class="col-sm-4">Existencia</dt>
+ <dd class="col-sm-8">@Model.Existencia unidades</dd>
+ </dl>
+</div>

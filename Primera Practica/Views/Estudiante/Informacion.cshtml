@@ -1,0 +1,19 @@
+@model Practica01MVC.Models.Estudiante
+@{
+ ViewData["Title"] = "Información del estudiante";
+}
+<h1>Información del estudiante</h1>
+<div class="card shadow-sm">
+ <div class="card-body">
+ <p><strong>Carnet:</strong> @Model.Carnet</p>
+ <p><strong>Nombres:</strong> @Model.Nombres</p>
+ <p><strong>Apellidos:</strong> @Model.Apellidos</p>
+ <p><strong>Carrera:</strong> @Model.Carrera</p>
+ <p><strong>Edad:</strong> @Model.Edad años</p>
+ </div>
+</div>
+<a asp-controller="Estudiante"
+ asp-action="Index"
+ class="btn btn-secondary mt-3">
+ Regresar
+</a>
