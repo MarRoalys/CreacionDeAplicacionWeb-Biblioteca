@@ -1,0 +1,75 @@
+@model Practica02BibliotecaMVC.Models.Libro
+@{
+    ViewData["Title"] = "Editar Libro";
+}
+
+<h1>Editar Libro</h1>
+<hr />
+
+<div class="card shadow-sm max-w-lg">
+    <div class="card-body">
+        <form asp-action="Edit" asp-route-id="@Model.IdLibro" method="post" class="row g-3">
+            <!-- ¡CRÍTICO! Este campo oculto envía el ID al servidor -->
+            <input type="hidden" asp-for="IdLibro" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="col-md-4">
+                <label asp-for="Isbn" class="form-label fw-bold"></label>
+                <input asp-for="Isbn" class="form-control" />
+                <span asp-validation-for="Isbn" class="text-danger small"></span>
+            </div>
+            
+            <div class="col-md-8">
+                <label asp-for="Titulo" class="form-label fw-bold"></label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger small"></span>
+            </div>
+            
+            <div class="col-md-4">
+                <label asp-for="IdCategoria" class="form-label fw-bold"></label>
+                <select asp-for="IdCategoria" asp-items="ViewBag.Categorias" class="form-select"></select>
+                <span asp-validation-for="IdCategoria" class="text-danger small"></span>
+            </div>
+            
+            <div class="col-md-4">
+                <label asp-for="IdAutor" class="form-label fw-bold"></label>
+                <select asp-for="IdAutor" asp-items="ViewBag.Autores" class="form-select"></select>
+                <span asp-validation-for="IdAutor" class="text-danger small"></span>
+            </div>
+            
+            <div class="col-md-4">
+                <label asp-for="IdEditorial" class="form-label fw-bold"></label>
+                <select asp-for="IdEditorial" asp-items="ViewBag.Editoriales" class="form-select"></select>
+                <span asp-validation-for="IdEditorial" class="text-danger small"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="AnioPublicacion" class="form-label fw-bold"></label>
+                <input asp-for="AnioPublicacion" class="form-control" type="number" />
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Stock" class="form-label fw-bold"></label>
+                <input asp-for="Stock" class="form-control" type="number" min="0" />
+                <span asp-validation-for="Stock" class="text-danger small"></span>
+            </div>
+
+            <div class="col-md-4">
+                <label asp-for="Estado" class="form-label fw-bold"></label>
+                <select asp-for="Estado" class="form-select">
+                    <option value="1">Disponible / Activo</option>
+                    <option value="0">Agotado / Inactivo</option>
+                </select>
+            </div>
+            
+            <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

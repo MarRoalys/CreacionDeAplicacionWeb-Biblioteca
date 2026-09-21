@@ -1,0 +1,9 @@
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.csproj.AssemblyReference.cache
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.AssemblyInfoInputs.cache
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.AssemblyInfo.cs
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.csproj.CoreCompileInputs.cache
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.RazorAssemblyInfo.cache
+C:\Users\Mary\Documents\Practica02BibliotecaMVC\obj\Debug\net10.0\Practica02BibliotecaMVC.RazorAssemblyInfo.cs

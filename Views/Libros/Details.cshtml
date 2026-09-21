@@ -1,0 +1,47 @@
+@model Practica02BibliotecaMVC.Models.Libro
+@{
+    ViewData["Title"] = "Detalles del Libro";
+}
+
+<h1>Detalles del Libro</h1>
+
+<div class="card shadow-sm mt-3">
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-3">Código ISBN</dt>
+            <dd class="col-sm-9"><span class="badge bg-secondary fs-6">@Model.Isbn</span></dd>
+            
+            <dt class="col-sm-3">Título</dt>
+            <dd class="col-sm-9 fw-bold">@Model.Titulo</dd>
+            
+            <dt class="col-sm-3">Autor</dt>
+            <dd class="col-sm-9">@Model.AutorNombreCompleto</dd>
+            
+            <dt class="col-sm-3">Categoría</dt>
+            <dd class="col-sm-9">@Model.CategoriaNombre</dd>
+            
+            <dt class="col-sm-3">Editorial</dt>
+            <dd class="col-sm-9">@Model.EditorialNombre</dd>
+
+            <dt class="col-sm-3">Año de Publicación</dt>
+            <dd class="col-sm-9">@(Model.AnioPublicacion?.ToString() ?? "No especificado")</dd>
+
+            <dt class="col-sm-3">Stock Actual</dt>
+            <dd class="col-sm-9">@Model.Stock unidades</dd>
+
+            <dt class="col-sm-3">Estado</dt>
+            <dd class="col-sm-9">
+                @if(Model.Estado == 1) { <span class="text-success fw-bold">Disponible / Activo</span> }
+                else { <span class="text-danger fw-bold">Agotado / Inactivo</span> }
+            </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-4">
+    <a asp-action="Index" class="btn btn-secondary">Regresar al catálogo</a>
+    @if (User.IsInRole("Administrador") || User.IsInRole("Bibliotecario"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model.IdLibro" class="btn btn-primary">Editar Libro</a>
+    }
+</div>

@@ -1,0 +1,4 @@
+<Solution>
+ <Project Path="Practica05_JWT/BibliotecaNorte.Api.csproj" />
+  <Project Path="Practica02BibliotecaMVC.csproj" />
+</Solution>
