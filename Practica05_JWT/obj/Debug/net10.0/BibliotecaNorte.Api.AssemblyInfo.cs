@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BibliotecaNorte.Api")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d7a9fcb789b0797b28dfa0b3d5e767b58a2ed890")]
 [assembly: System.Reflection.AssemblyProductAttribute("BibliotecaNorte.Api")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BibliotecaNorte.Api")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

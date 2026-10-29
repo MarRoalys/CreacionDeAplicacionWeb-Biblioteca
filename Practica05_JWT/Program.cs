@@ -5,6 +5,8 @@ using MySqlConnector;
 using System.Text;
 using BibliotecaNorte.Api.Services; // Asegúrate de que esto coincida con tus carpetas
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // 1. Agregar los controladores
@@ -70,6 +72,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 // Agregar Autorización
 builder.Services.AddAuthorization();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Frontend", policy =>
+    {
+        // Verifica que este sea exactamente el puerto donde corre tu React (Vite)
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -81,7 +94,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// ¡ESTE ORDEN ES VITAL PARA QUE NO DE ERROR!
+app.UseCors("Frontend");
 app.UseAuthentication(); // Primero identifica quién es (El Token)
 app.UseAuthorization();  // Luego revisa qué permisos tiene (Los Roles)
 
